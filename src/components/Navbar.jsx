@@ -6,27 +6,28 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    {
-      name: "Home",
-      link: "#home",
-    },
-    {
-      name: "About",
-      link: "#about",
-    },
-    {
-      name: "Skills",
-      link: "#skills",
-    },
-    {
-      name: "Projects",
-      link: "#projects",
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
-  ];
+  {
+    name: "Home",
+    link: "#home",
+  },
+  {
+    name: "About",
+    link: "#about",
+  },
+  {
+    name: "Skills",
+    link: "#skills",
+  },
+  {
+    name: "Projects",
+    link: "#projects",
+  },
+  {
+    name: "Contact",
+    link: "#contact",
+  },
+];
+
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
@@ -42,23 +43,8 @@ function Navbar() {
             <img
               src={logo}
               alt="Manisha Logo"
-              className="w-12 h-12 object-contain"
+              className="w-18 h-18 object-contain"
             />
-
-            <span
-              className="
-                text-xl
-                md:text-2xl
-                font-bold
-                bg-gradient-to-r
-                from-purple-400
-                to-pink-400
-                bg-clip-text
-                text-transparent
-              "
-            >
-              Manisha
-            </span>
           </a>
 
           {/* Desktop Menu */}

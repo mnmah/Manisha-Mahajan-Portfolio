@@ -1,16 +1,50 @@
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
   FaPhoneAlt,
 } from "react-icons/fa";
+
+import { SiLeetcode } from "react-icons/si";
+
 import {
   MdEmail,
   MdLocationOn,
 } from "react-icons/md";
 
+
 function Contact() {
+
+  const form = useRef();
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "service_91551lm",
+      "template_7gxtf7r",
+      form.current,
+      "f-bvsxac2FQyY9z9-"
+    )
+    .then(
+      () => {
+        alert("Message sent successfully!");
+        form.current.reset();
+      },
+      (error) => {
+        alert("Failed to send message.");
+        console.log("EmailJS Error:", error);
+console.log("Status:", error.status);
+console.log("Text:", error.text);
+      }
+    );
+};
+
+
   return (
     <section
       id="contact"
@@ -142,7 +176,7 @@ function Contact() {
               <div className="flex gap-4">
 
                 <a
-                  href="#"
+                  href="https://github.com/mnmah"
                   className="
                     p-4 rounded-xl
                     bg-slate-800
@@ -154,7 +188,7 @@ function Contact() {
                 </a>
 
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/mnma/"
                   className="
                     p-4 rounded-xl
                     bg-slate-800
@@ -166,7 +200,7 @@ function Contact() {
                 </a>
 
                 <a
-                  href="#"
+                  href="https://www.instagram.com/m.anyyyy?igsh=N2w4aHlndXU2OWVz"
                   className="
                     p-4 rounded-xl
                     bg-slate-800
@@ -176,6 +210,20 @@ function Contact() {
                 >
                   <FaInstagram size={22} />
                 </a>
+
+               
+               <a
+    href="https://leetcode.com/u/SpWbVqBx/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <SiLeetcode 
+    className="
+    hover:text-yellow-400
+    transition duration-300 
+    hover:scale-110 " />
+  </a>
+
 
               </div>
 
@@ -203,7 +251,11 @@ function Contact() {
               p-8
             "
           >
-            <form className="space-y-6">
+           <form
+  ref={form}
+  onSubmit={sendEmail}
+  className="space-y-6"
+>
 
               <div>
                 <label className="block mb-2 text-gray-300">
@@ -211,18 +263,20 @@ function Contact() {
                 </label>
 
                 <input
-                  type="text"
-                  placeholder="Enter your name"
-                  className="
-                    w-full
-                    px-5 py-4
-                    rounded-xl
-                    bg-slate-800
-                    border border-slate-700
-                    outline-none
-                    focus:border-purple-500
-                  "
-                />
+  type="text"
+  name="user_name"
+  required
+  placeholder="Enter your name"
+  className="
+    w-full
+    px-5 py-4
+    rounded-xl
+    bg-slate-800
+    border border-slate-700
+    outline-none
+    focus:border-purple-500
+  "
+/>
               </div>
 
               <div>
@@ -230,19 +284,21 @@ function Contact() {
                   Email
                 </label>
 
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="
-                    w-full
-                    px-5 py-4
-                    rounded-xl
-                    bg-slate-800
-                    border border-slate-700
-                    outline-none
-                    focus:border-purple-500
-                  "
-                />
+               <input
+  type="email"
+  name="user_email"
+  required
+  placeholder="Enter your email"
+  className="
+    w-full
+    px-5 py-4
+    rounded-xl
+    bg-slate-800
+    border border-slate-700
+    outline-none
+    focus:border-purple-500
+  "
+/>
               </div>
 
               <div>
@@ -251,18 +307,20 @@ function Contact() {
                 </label>
 
                 <input
-                  type="text"
-                  placeholder="Enter subject"
-                  className="
-                    w-full
-                    px-5 py-4
-                    rounded-xl
-                    bg-slate-800
-                    border border-slate-700
-                    outline-none
-                    focus:border-purple-500
-                  "
-                />
+  type="text"
+  name="subject"
+  required
+  placeholder="Enter subject"
+  className="
+    w-full
+    px-5 py-4
+    rounded-xl
+    bg-slate-800
+    border border-slate-700
+    outline-none
+    focus:border-purple-500
+  "
+/>
               </div>
 
               <div>
@@ -271,36 +329,39 @@ function Contact() {
                 </label>
 
                 <textarea
-                  rows="5"
-                  placeholder="Write your message..."
-                  className="
-                    w-full
-                    px-5 py-4
-                    rounded-xl
-                    bg-slate-800
-                    border border-slate-700
-                    outline-none
-                    focus:border-purple-500
-                  "
-                />
+  name="message"
+  rows="5"
+  required
+  placeholder="Write your message..."
+  className="
+    w-full
+    px-5 py-4
+    rounded-xl
+    bg-slate-800
+    border border-slate-700
+    outline-none
+    focus:border-purple-500
+  "
+/>
               </div>
 
-              <button
-                type="submit"
-                className="
-                  w-full
-                  py-4
-                  rounded-xl
-                  bg-gradient-to-r
-                  from-purple-500
-                  to-pink-500
-                  font-semibold
-                  hover:scale-[1.02]
-                  transition
-                "
-              >
-                Send Message
-              </button>
+             <button
+  type="submit"
+  className="
+    w-full
+    py-4
+    rounded-xl
+    bg-gradient-to-r
+    from-purple-500
+    to-pink-500
+    font-semibold
+    hover:scale-[1.02]
+    transition-all
+    duration-300
+  "
+>
+  Send Message
+</button>
 
             </form>
           </motion.div>

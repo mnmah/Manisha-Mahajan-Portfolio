@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import skillsImage from "../assets/Skills.png";
+// import skillsImage from "../assets/Skills.png";
 
 function Skills() {
   const technologies = [
@@ -17,19 +17,19 @@ function Skills() {
   const expertise = [
     {
       title: "Frontend Development",
-      width: "95%",
+      width: "96%",
     },
     {
       title: "Backend Development",
-      width: "92%",
+      width: "93%",
     },
     {
       title: "Database Management",
-      width: "90%",
+      width: "92%",
     },
     {
       title: "API Integration",
-      width: "96%",
+      width: "93%",
     },
   ];
 
@@ -85,55 +85,111 @@ function Skills() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex justify-center mb-16"
+          className="flex justify-center mb-3"
         >
-          <motion.img
-            src={skillsImage}
-            alt="Skills"
-            animate={{
-              y: [0, -12, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-            }}
-            className="
-              w-64
-              sm:w-80
-              md:w-96
-              lg:w-[450px]
-              object-contain
-            "
-          />
+        
         </motion.div>
 
         {/* Technology Pills */}
-        <div className="flex flex-wrap justify-center gap-4 mb-20">
+       <div className="mb-20 overflow-hidden">
 
-          {technologies.map((tech, index) => (
-            <motion.div
-              key={index}
-              whileHover={{
-                scale: 1.08,
-              }}
-              className="
-                px-5 py-3
-                rounded-xl
-                bg-slate-900
-                border border-slate-700
-                hover:border-purple-500
-                transition
-                cursor-pointer
-              "
-            >
-              {tech}
-            </motion.div>
-          ))}
+  <div className="relative">
 
+    {/* Left Fade */}
+    <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-slate-950 to-transparent z-10" />
+
+    {/* Right Fade */}
+    <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-slate-950 to-transparent z-10" />
+
+    <motion.div
+      animate={{
+        x: ["-50%", "0%"],
+      }}
+      transition={{
+        duration: 25,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+      className="flex gap-4 w-max"
+    >
+      {[...technologies, ...technologies].map((tech, index) => (
+        <div
+          key={index}
+          className="
+            px-5 py-3
+            rounded-xl
+            bg-slate-900
+            border border-slate-700
+            hover:border-purple-500
+            hover:bg-slate-800
+            transition
+            cursor-pointer
+            whitespace-nowrap
+          "
+        >
+          {tech}
         </div>
+      ))}
+    </motion.div>
 
+  </div>
+
+</div>
+
+
+{/* Tools Section */}
+    <div className="mt-24 overflow-hidden">
+
+  <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
+    Tools & Integrations
+  </h3>
+
+  <div className="relative">
+
+    <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-slate-950 to-transparent z-10" />
+
+    <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-slate-950 to-transparent z-10" />
+
+    <motion.div
+      animate={{
+        x: ["0%", "-50%"],
+      }}
+      transition={{
+        duration: 25,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+      className="flex gap-5 w-max"
+    >
+      {[...tools, ...tools].map((tool, index) => (
+        <div
+          key={index}
+          className="
+            px-6 py-3
+            rounded-full
+            border border-purple-500/30
+            bg-gradient-to-r
+            from-purple-500/10
+            to-pink-500/10
+            text-purple-200
+            font-medium
+            whitespace-nowrap
+            hover:scale-105
+            transition
+          "
+        >
+          {tool}
+        </div>
+      ))}
+    </motion.div>
+
+  </div>
+
+</div>
+
+        
         {/* Expertise Section */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto mt-12">
 
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Expertise
@@ -184,37 +240,6 @@ function Skills() {
 
         </div>
 
-        {/* Tools Section */}
-        <div className="mt-24">
-
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-10">
-            Tools & Integrations
-          </h3>
-
-          <div className="flex flex-wrap justify-center gap-3">
-
-            {tools.map((tool, index) => (
-              <motion.span
-                key={index}
-                whileHover={{
-                  scale: 1.05,
-                }}
-                className="
-                  px-4 py-2
-                  rounded-full
-                  bg-purple-500/10
-                  border border-purple-500/30
-                  text-purple-300
-                  cursor-pointer
-                "
-              >
-                {tool}
-              </motion.span>
-            ))}
-
-          </div>
-
-        </div>
 
       </div>
     </section>

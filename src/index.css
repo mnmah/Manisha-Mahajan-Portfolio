@@ -9,3 +9,6 @@ body {
   background: #fff7fb;
 }
 
+html {
+  scroll-behavior: smooth;
+}

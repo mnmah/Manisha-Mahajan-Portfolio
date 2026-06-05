@@ -3,11 +3,12 @@ import profile from "../assets/passport_img.png";
 
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
+import resume from "../assets/Manisha_Mahajan_2025_MERN_Resume.pdf";
 
 function About() {
   return (
     <section
-      id="about"
+      id="about" 
       className="bg-slate-900 text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
@@ -94,7 +95,7 @@ function About() {
 
               <div className="bg-slate-800 p-5 rounded-xl border border-slate-700 hover:border-purple-500 transition">
                 <h4 className="text-purple-400 text-2xl font-bold">
-                  3+
+                  4+
                 </h4>
 
                 <p className="text-gray-400">
@@ -167,13 +168,40 @@ function About() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mt-10">
 
-              <button className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 sm:px-8 sm:py-4 rounded-xl hover:scale-105 transition">
-                Download Resume
-              </button>
+              <a
+  href={resume}
+  target="_blank"
+  rel="noopener noreferrer"
+  download="Manisha_Mahajan_Resume.pdf"
+  className="
+    border border-purple-500
+    px-6 py-3
+    sm:px-8 sm:py-4
+    rounded-xl
+    hover:bg-purple-500
+    hover:text-white
+    transition
+    text-center
+  "
+>
+  Download Resume
+</a>
 
-              <button className="border border-purple-500 px-6 py-3 sm:px-8 sm:py-4 rounded-xl hover:bg-purple-500 transition">
-                Contact Me
-              </button>
+              <a
+  href="#contact"
+  className="
+    border border-purple-500
+    px-6 py-3
+    sm:px-8 sm:py-4
+    rounded-xl
+    hover:bg-purple-500
+    hover:text-white
+    transition
+    text-center
+  "
+>
+  Contact Me
+</a>
 
             </div>
 

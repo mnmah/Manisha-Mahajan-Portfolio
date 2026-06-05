@@ -6,12 +6,17 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
+import { SiLeetcode } from "react-icons/si";
+
 import profile from "../assets/home_profile_image.png";
+import resume from "../assets/Manisha_Mahajan_2025_MERN_Resume.pdf";
 
 function Home() {
   return (
-    <section className="relative min-h-screen bg-slate-950 overflow-hidden text-white">
-
+    <section
+      id="home"
+      className="relative min-h-screen pt-24 md:pt-28 bg-slate-950 overflow-hidden text-white"
+    >
       {/* Background Glow */}
       <div className="absolute top-10 left-0 w-40 sm:w-72 h-40 sm:h-72 bg-purple-500/20 rounded-full blur-[100px]" />
 
@@ -19,45 +24,10 @@ function Home() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Navbar */}
-        <nav className="flex justify-between items-center py-6 md:py-8">
-
-          <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Manisha
-          </h1>
-
-          <ul className="hidden lg:flex gap-8 text-gray-300">
-            <li className="cursor-pointer hover:text-purple-400 transition">
-              Home
-            </li>
-
-            <li className="cursor-pointer hover:text-purple-400 transition">
-              About
-            </li>
-
-            <li className="cursor-pointer hover:text-purple-400 transition">
-              Skills
-            </li>
-
-            <li className="cursor-pointer hover:text-purple-400 transition">
-              Projects
-            </li>
-
-            <li className="cursor-pointer hover:text-purple-400 transition">
-              Contact
-            </li>
-          </ul>
-
-          <button className="text-sm md:text-base bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-2 md:px-5 md:py-2 rounded-xl hover:scale-105 transition">
-            Hire Me
-          </button>
-
-        </nav>
-
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 items-center gap-12 min-h-[85vh] py-10">
 
-          {/* Image Section */}
+          {/* Image */}
           <motion.div
             initial={{ x: 80, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -65,16 +35,14 @@ function Home() {
             className="order-1 lg:order-2 flex justify-center"
           >
             <motion.div
-              animate={{
-                y: [0, -15, 0],
-              }}
+              animate={{ y: [0, -15, 0] }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
               }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl opacity-30"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl opacity-30" />
 
               <img
                 src={profile}
@@ -94,7 +62,7 @@ function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Content Section */}
+          {/* Content */}
           <motion.div
             initial={{ x: -80, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -112,7 +80,6 @@ function Home() {
               </span>
             </h1>
 
-            {/* Typewriter */}
             <div className="mt-5 min-h-[60px]">
               <TypeAnimation
                 sequence={[
@@ -153,30 +120,79 @@ function Home() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-8">
 
-              <button className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-medium hover:scale-105 transition">
+              <a
+                href="#projects"
+                className="
+                  bg-gradient-to-r
+                  from-purple-500
+                  to-pink-500
+                  px-6 py-3
+                  sm:px-8 sm:py-4
+                  rounded-xl
+                  font-medium
+                  hover:scale-105
+                  transition
+                  text-center
+                "
+              >
                 View Projects
-              </button>
+              </a>
 
-              <button className="border border-purple-500 px-6 py-3 sm:px-8 sm:py-4 rounded-xl hover:bg-purple-500 hover:text-white transition">
-                Download Resume
-              </button>
+           <a
+  href={resume}
+  target="_blank"
+  rel="noopener noreferrer"
+  download="Manisha_Mahajan_Resume.pdf"
+  className="
+    border border-purple-500
+    px-6 py-3
+    sm:px-8 sm:py-4
+    rounded-xl
+    hover:bg-purple-500
+    hover:text-white
+    transition
+    text-center
+  "
+>
+  Download Resume
+</a>
 
             </div>
 
-            {/* Social Icons */}
+            {/* Social Links */}
             <div className="flex justify-center lg:justify-start gap-6 mt-8 text-2xl">
 
-              <a href="#">
-                <FaGithub className="hover:text-purple-400 transition cursor-pointer" />
+              <a
+                href="https://github.com/mnmah"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub className="hover:text-purple-400 transition" />
               </a>
 
-              <a href="#">
-                <FaLinkedin className="hover:text-purple-400 transition cursor-pointer" />
+              <a
+                href="https://www.linkedin.com/in/mnma/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaLinkedin className="hover:text-purple-400 transition" />
               </a>
 
-              <a href="#">
-                <FaInstagram className="hover:text-purple-400 transition cursor-pointer" />
+              <a
+                href="https://www.instagram.com/m.anyyyy?igsh=N2w4aHlndXU2OWVz"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaInstagram className="hover:text-purple-400 transition" />
               </a>
+
+              <a
+    href="https://leetcode.com/u/SpWbVqBx/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <SiLeetcode className="hover:text-yellow-400 transition duration-300 hover:scale-110" />
+  </a>
 
             </div>
 
@@ -185,7 +201,6 @@ function Home() {
         </div>
 
       </div>
-
     </section>
   );
 }
