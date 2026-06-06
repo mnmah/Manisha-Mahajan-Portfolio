@@ -55,7 +55,6 @@ return ( <section
    "
  > <div className="absolute top-20 left-0 w-72 h-72 bg-purple-500/10 rounded-full blur-[120px]" /> <div className="absolute bottom-20 right-0 w-72 h-72 bg-pink-500/10 rounded-full blur-[120px]" />
 
-```
   <div className="max-w-7xl mx-auto">
 
     <motion.div
